@@ -26,21 +26,21 @@
     } */
 
      // Consulta
-/*      $usuarios = $usuarioModel->select('Nombre')
-     ->where('Nombre','LIKE','%nombre%')
+/*      $productos = $productoModel->select('Nombre')
+     ->where('nombre','LIKE','%pantalon%')
      ->get();
-     foreach($usuarios as $usuario){
-        echo '<br/>Nombre: '.$usuario->Nombre.'<br/>';
-    } */
-
+     foreach($productos as $producto){
+        echo '<br/>Nombre: '.$producto->Nombre.'<br/>';
+    }
+ */
      // Consulta
-     // $usuarioModel->select('id', 'nombre')
+     // $productoModel->select('id', 'nombre')
       //           ->where('id', '>', '0')
     //             ->orderBy('id', 'DESC')
      //            ->get();
 
      // Consulta
-     // $usuarioModel->select('columna1', 'columna2')
+     // $productoModel->select('columna1', 'columna2')
      //             ->where('columna1', '>', '3')
      //             ->where('columna2', 'columna3')
      //             ->where('columna2', 'columna3')
@@ -49,13 +49,13 @@
      //             ->get();
 
      // Consulta
-     $productoModel->create(['nombre' => 'camisa'],['precio' => '20']);
+     //$productoModel->create(['nombre' => 'camisa','precio' => '20']);
 
      // Consulta
-     ///$usuarioModel->delete(1);
+     ///$productoModel->delete(1);
 
      // Consulta
-     //$usuarioModel->update(1, ['nombre' => 'Pachinko']);
+     //$productoModel->update(1, ['nombre' => 'Pachinko']);
     ?>
 </body>
 
