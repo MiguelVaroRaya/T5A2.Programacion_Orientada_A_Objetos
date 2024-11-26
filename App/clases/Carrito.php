@@ -23,4 +23,14 @@ class Carrito
             unset($this->productos[$posicion]);
         }
     }
+
+    public function calcularTotal(): float {
+        $total = 0;
+
+        foreach ($this->productos as $indice => $producto) {
+            $total += $producto->calcularPrecioConIVA();
+        }
+
+        return $total;
+    }
 }
