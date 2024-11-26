@@ -3,7 +3,8 @@
 $request = $_SERVER['REQUEST_URI'];
 
 $allowed_routes = [
-    '/' => 'home.php',
+    '/' => 'inicio.php',
+    '/home' => 'home.php',
     '/usuarios' => 'usuarios.php'
 ];
 
