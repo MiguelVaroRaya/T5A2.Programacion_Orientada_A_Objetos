@@ -4,15 +4,23 @@ namespace app\clases;
 
 use app\Interfaces\VendibleInterface;
 
-class Producto implements VendibleInterface
+abstract class Producto implements VendibleInterface
 {
-    public function __construct(private string $id, private string $nombre, private float $precio)
+    private string $id;
+
+    public function __construct(private string $nombre, private float $precio)
     {
         define('IVA', 21.0);
     }
 
+    abstract protected function mostrarDescripcion(): void;
+
     public function calcularPrecioConIVA(): float
     {
-        return 0;
+        $aumento = $this->precio * (IVA/100);
+
+        $resultado = $this->precio + $aumento;
+
+        return $resultado;
     }
 }
