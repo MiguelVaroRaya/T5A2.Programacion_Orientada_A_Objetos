@@ -33,4 +33,8 @@ class Carrito
 
         return $total;
     }
+
+    public function vaciarCarrito(): void {
+        $this->productos = [];
+    }
 }
