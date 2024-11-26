@@ -21,7 +21,7 @@ class Carrito
     public function eliminarProducto(string $id): void
     {
         foreach ($this->productos as $indice => $producto) {
-            if ($producto->id == $id) {
+            if ($producto->getId() == $id) {
                 $posicion = $indice;
             }
         }
