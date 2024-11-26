@@ -37,4 +37,10 @@ class Carrito
     public function vaciarCarrito(): void {
         $this->productos = [];
     }
+
+    public function mostrarCarrito(): void {
+        foreach ($this->productos as $indice => $producto) {
+            $producto->mostrarDescripcion();
+        }
+    }
 }
