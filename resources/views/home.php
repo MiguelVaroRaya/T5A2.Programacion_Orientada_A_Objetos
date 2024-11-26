@@ -52,10 +52,10 @@
      //$productoModel->create(['nombre' => 'camisa','precio' => '20']);
 
      // Consulta
-     ///$productoModel->delete(1);
+    //$productoModel->delete(4);
 
      // Consulta
-     //$productoModel->update(1, ['nombre' => 'Pachinko']);
+     $productoModel->update(1, ['nombre' => 'chaqueton']);
     ?>
 </body>
 

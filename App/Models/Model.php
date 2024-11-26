@@ -94,6 +94,7 @@ class Model
         $sql = "SELECT * FROM {$this->table}";
         // Y se llama a la sentencia
         $this->query($sql)->get();
+        // para obtener los datos del select
         return $this->query->fetchall(\PDO::FETCH_OBJ);
     }
 
@@ -114,6 +115,7 @@ class Model
 
             $this->query = $this->connection->prepare($sql);
             $this->query->execute($this->values);
+            //para obtener los datos del select
             return $this->query->fetchall(\PDO::FETCH_OBJ);
         }
     }
