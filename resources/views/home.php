@@ -55,7 +55,12 @@
     //$productoModel->delete(4);
 
      // Consulta
-     $productoModel->update(1, ['nombre' => 'chaqueton']);
+     $resultado = $productoModel->select('*')->where('precio', '=', 4)->get();
+
+     print_r($resultado);
+
+     echo "<br>";
+     $resultado2 = $productoModel->find(1);
     ?>
 </body>
 
