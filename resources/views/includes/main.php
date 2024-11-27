@@ -1,48 +1,151 @@
-<main>
+<main class="main">
+    <section class="section">
+        <h1>Seccion Comida</h1>
+        <div class="card_container">
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Plato combinado</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/comida1.avif" alt="Toyota RAV4">
+                </div>
+                <div class="card__content">
+                    Plato combinado, presa con patatas
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
+            </div>
 
-    <section class="contenido">
-        <h2>BIENVENIDOS A E-COMMERCE!</h2>
-        <p>Desde aquí podrás gestionar las compras de productos que te ofrecen nuestros servicios.</p>
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Hamburguesa</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/comida2.webp" alt="BMW Serie 3">
+                </div>
+                <div class="card__content">
+                    Hamburguesa de ternera, con tomate y lechuga
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Flan gastrónomico</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/comida3.avif" alt="Ford Fiesta">
+                </div>
+                <div class="card__content">
+                    Flan con sirope de fresa combinado con frambuesas
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <article class="mainArticle">
-        <div class="coche">
-            <h3>Comida</h3>
-            <img src="imagenes/comida.jpg" alt="comida">
-            <a href="/comida" class="reserva-btn">Reserva Ya</a>
-        </div>
-        <div class="coche">
-            <h3>Ropa</h3>
-            <img src="imagenes/ropa.jpg" alt="ropa">
-            <a href="/ropa" class="reserva-btn">Reserva Ya</a>
-        </div>
-        <div class="coche">
-            <h3>Aparatos Tecnologicos</h3>
-            <img src="imagenes/aparatosTecnologicos.jpg" alt="aparatos tecnologicos">
-            <a href="/aparatosTecnologico" class="reserva-btn">Reserva Ya</a>
-        </div>
-    </article>
-    <!-- Sección de Preguntas Frecuentes -->
-    <section class="faq-section">
-        <h2>Preguntas frecuentes sobre compras online</h2>
-        <div class="faq">
-            <div class="faq-item">
-                <h3>¿Puedo comprar sin crear una cuenta?</h3>
-                <p>En E-COMMERCE puedes realizar compras como invitado, aunque te recomendamos registrarte para acceder a promociones exclusivas y un seguimiento detallado de tus pedidos.</p>
+    <section class="section">
+        <h1>Seccion Ropa</h1>
+        <div class="card_container">
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Chaqueta de traje</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/ropa3.jpg" alt="Toyota RAV4">
+                </div>
+                <div class="card__content">
+                    Chaqueta cómoda, ideal para ocasiones especiales.
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
             </div>
-            <div class="faq-item">
-                <h3>¿Cuánto tarda el envío?</h3>
-                <p>El tiempo de envío varía según el tipo de producto y la ubicación, pero suele ser entre 24 y 72 horas. <a href="#">Consulta los tiempos de envío por categoría.</a></p>
+
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Pantalone vaqueros</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/ropa1.webp" alt="BMW Serie 3">
+                </div>
+                <div class="card__content">
+                    Pantalones Elegante, perfecto para cualquier situacion.
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
             </div>
-            <div class="faq-item">
-                <h3>¿Qué métodos de pago aceptan?</h3>
-                <p>Aceptamos tarjetas de crédito, débito, PayPal y transferencias bancarias. <a href="#">Ver todos los métodos de pago.</a></p>
-            </div>
-            <div class="faq-item">
-                <h3>¿Cómo puedo devolver un producto?</h3>
-                <p>Si no estás satisfecho con tu compra, tienes hasta 30 días para realizar una devolución. <a href="#">Consulta nuestra política de devoluciones.</a></p>
+
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Zapatos deportivos</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/ropa2.jpg" alt="Ford Fiesta">
+                </div>
+                <div class="card__content">
+                    Zapatos deportivos, los mejores para el dia a dia
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
             </div>
         </div>
     </section>
 
+    <section class="section">
+        <h1>Seccion Comida</h1>
+        <div class="card_container">
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Teléfono movil</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/movil.webp" alt="Toyota RAV4">
+                </div>
+                <div class="card__content">
+                    Pocco 5G, el mejor telefono calidad/precio ideal para cualquier ocasión
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Ipad Pro</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/tablet.webp" alt="BMW Serie 3">
+                </div>
+                <div class="card__content">
+                    Ipad Pro, ideal para trabajar y jugar, no te lo pierdas
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card__titulo">
+                    <h3>Portatil</h3>
+                </div>
+                <div class="card__img">
+                    <img src="img/portatil.jpg" alt="Ford Fiesta">
+                </div>
+                <div class="card__content">
+                    Mejor Portatil calidad/precio, ideal para jugar y trabajar de forma profesional    
+                </div>
+                <div class="card__footer">
+                    <button class="card__boton">Alquilar</button>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>

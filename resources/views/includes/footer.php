@@ -1,44 +1,30 @@
-<footer>
-    <div class="footer-container">
-        <div class="footer-section">
-            <h4>Más información</h4>
+<footer class="footer">
+    <div class="footer__container">
+        <div class="footer__column">
+            <h3>Contacto</h3>
+            <p>Email: RentCar@gmail.com</p>
+            <p>Teléfono: 679 55 66 77</p>
+            <p>Dirección: Calle Larios nº 13</p>
+        </div>
+        <div class="footer__column">
+            <h3>Enlaces</h3>
             <ul>
-                <li><a href="#">Contacta con nosotros</a></li>
-                <li><a href="#">App móvil</a></li>
-                <li><a href="#">Encuentra tu oficina</a></li>
-                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="tarifas">Tarifas</a></li>
+                <li><a href="registro">Registrar</a></li>
+                <li><a href="mostrar">Datos</a></li>
             </ul>
         </div>
-        <div class="footer-section">
-            <h4>Empresas</h4>
+        <div class="footer__column">
+            <h3>Síguenos</h3>
             <ul>
-                <li><a href="#">Clientes corporativos</a></li>
-                <li><a href="#">Soluciones para Empresas</a></li>
-                <li><a href="#">Agencias de Viajes</a></li>
-                <li><a href="#">Touroperadores</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>E-COMMERCE</h4>
-            <ul>
-                <li><a href="#">Sobre E-COMMERCE</a></li>
-                <li><a href="#">Empleo</a></li>
-                <li><a href="#">Prensa</a></li>
-                <li><a href="#">Goldcar</a></li>
-                <li><a href="#">E-COMMERCE On Demand</a></li>
-                <li><a href="#">E-COMMERCE Rent</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Información legal</h4>
-            <ul>
-                <li><a href="#">Política de gestión de daños</a></li>
-                <li><a href="#">Política de depósito</a></li>
-                <li><a href="#">Información importante</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-                <li><a href="#">Términos y condiciones</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Instagram</a></li>
             </ul>
         </div>
     </div>
-    <p>&copy; 2023 E-COMMERCE. Todos los derechos reservados.</p>
+    <div class="footer__bottom">
+        <p>&copy; 2024 RentCar. Todos los derechos reservados.</p>
+    </div>
 </footer>

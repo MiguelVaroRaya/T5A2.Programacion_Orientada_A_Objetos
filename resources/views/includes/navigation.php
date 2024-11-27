@@ -1,6 +1,8 @@
-<nav>
-    <a href="/">Inicio</a>
-    <a href="/comida">Comida</a>
-    <a href="/ropa">Ropa</a>
-    <a href="/aparatosTecnologicos">Aparatos Tecnologicos</a>
+<nav class="nav">
+    <a href="/" class="nav__link">
+        <p class="nav__text">Inicio</p>
+    </a>
+    <a href="metodoModel" class="nav__link">
+        <p class="nav__text">Métodos Model</p>
+    </a>
 </nav>
