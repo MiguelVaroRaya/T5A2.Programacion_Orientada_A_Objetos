@@ -15,15 +15,16 @@ $dotenv->load();
 class Model
 {
 
-    protected $connection;
+    private $connection;
 
-    protected $query; // Consulta a ejecutar
+    private $query; // Consulta a ejecutar
 
     protected $select = '*';
     protected $where, $values = [];
     protected $orderBy;
-
-    protected $table; // Definido en el hijo
+    protected $from;
+    protected $table1;
+    protected $table2; // Definido en el hijo
 
     public function __construct()
     {
@@ -31,7 +32,7 @@ class Model
         $this->connection();
     }
 
-    protected function connection()
+    private function connection()
     {
         $dbHost = $_ENV['DB_HOST'];
         $dbName = $_ENV['DB_NAME'];
@@ -50,7 +51,7 @@ class Model
     // Consultas: 
 
     // Recibe la cadena de consulta y la ejecuta
-    public function query($sql, $data = [])
+    private function query($sql, $data = [])
     {
 
         echo "Consulta: {$sql} <br>"; // borrar, solo para ver ejemplo
@@ -70,7 +71,6 @@ class Model
             }
 
             $stmp->execute();
-            
         } else {
             $this->query = $this->connection->query($sql);
         }
@@ -87,11 +87,19 @@ class Model
         return $this;
     }
 
+    public function from(...$tables)
+    {
+        // Separamos el array en una cadena con ,
+        $this->from  = implode(', ', $tables);
+
+        return $this;
+    }
+
     // Devuelve todos los registros de una tabla
     public function all()
     {
         // La consulta sería
-        $sql = "SELECT * FROM {$this->table}";
+        $sql = "SELECT * FROM {$this->from}";
         // Y se llama a la sentencia
         $this->query($sql)->get();
         // para obtener los datos del select
@@ -102,7 +110,7 @@ class Model
     public function get()
     {
         if (empty($this->query)) {
-            $sql = "SELECT {$this->select} FROM {$this->table}";
+            $sql = "SELECT {$this->select} FROM {$this->from}";
 
             // Se comprueban si están definidos para añadirlos a la cadena $sql
             if ($this->where) {
@@ -122,9 +130,11 @@ class Model
 
     public function find($id)
     {
-        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
+        $sql = "SELECT * FROM {$this->from} WHERE id = ?";
 
-        $this->query($sql, [$id], 'i');
+        $this->query = $this->connection->prepare($sql);
+        $this->query->execute([$id]);
+        return $this->query->fetch(\PDO::FETCH_OBJ);
     }
 
     // Se añade where a la sentencia con operador específico
@@ -167,7 +177,7 @@ class Model
 
         $values = array_values($data); // array de los valores
 
-        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES (?" . str_repeat(', ? ', count($values) - 1) . ")";
+        $sql = "INSERT INTO {$this->from} ({$columns}) VALUES (?" . str_repeat(', ? ', count($values) - 1) . ")";
 
         $this->query($sql, $values);
 
@@ -175,6 +185,7 @@ class Model
     }
 
     public function update($id, $data)
+    //llamamos con from a la tabla que queremos modificar y $id y $data los parametros correspondientes
     {
         $fields = [];
 
@@ -184,7 +195,7 @@ class Model
 
         $fields = implode(', ', $fields);
 
-        $sql = "UPDATE {$this->table} SET {$fields} WHERE id = ?";
+        $sql = "UPDATE {$this->from} SET {$fields} WHERE id = ?";
 
         $values = array_values($data);
         $values[] = $id;
@@ -194,9 +205,20 @@ class Model
     }
 
     public function delete($id)
+    //delete se realizara en la tabla uno solamente ya que las siguiente se borraría en cascada.
     {
-        $sql = "DELETE FROM {$this->table} WHERE id = ?";
+        $sql = "DELETE FROM {$this->table1} WHERE id = ?";
 
         $this->query($sql, [$id], 'i');
+    }
+    // en este metodo llamamos dentro al select y las claves para comparar y hacer el join las pasamos desde fuera
+    public function innerJoin($primaria, $foranea)
+    {
+        //consulta
+        $sql = "SELECT {$this->select} FROM {$this->table1} INNER JOIN {$this->table2} ON {$primaria}={$foranea}";
+        $this->query = $this->connection->prepare($sql);
+        $this->query->execute();
+        //para obtener los datos del select
+        return $this->query->fetchall(\PDO::FETCH_OBJ);
     }
 }

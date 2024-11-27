@@ -100,7 +100,7 @@
     </section>
 
     <section class="section">
-        <h1>Seccion Comida</h1>
+        <h1>Seccion Electrónica</h1>
         <div class="card_container">
             <div class="card">
                 <div class="card__titulo">
