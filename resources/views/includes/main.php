@@ -13,7 +13,7 @@
                     Plato combinado, presa con patatas
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                     Hamburguesa de ternera, con tomate y lechuga
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                     Flan con sirope de fresa combinado con frambuesas
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                     Chaqueta cómoda, ideal para ocasiones especiales.
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -78,7 +78,7 @@
                     Pantalones Elegante, perfecto para cualquier situacion.
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
                     Zapatos deportivos, los mejores para el dia a dia
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
                     Pocco 5G, el mejor telefono calidad/precio ideal para cualquier ocasión
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -128,7 +128,7 @@
                     Ipad Pro, ideal para trabajar y jugar, no te lo pierdas
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
 
@@ -143,7 +143,7 @@
                     Mejor Portatil calidad/precio, ideal para jugar y trabajar de forma profesional    
                 </div>
                 <div class="card__footer">
-                    <button class="card__boton">Alquilar</button>
+                    <button class="card__boton">Añadir al carrito</button>
                 </div>
             </div>
         </div>

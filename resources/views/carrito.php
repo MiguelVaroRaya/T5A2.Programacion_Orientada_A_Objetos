@@ -7,7 +7,7 @@
 <body>
     <?php require 'includes/header.php'; ?>
     <?php require 'includes/navigation.php'; ?>
-    <?php require 'includes/main_registro.php'; ?>
+    <?php require 'includes/main_carrito.php'; ?>
     <?php require 'includes/footer.php'; ?>
 </body>
 

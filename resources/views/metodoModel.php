@@ -7,7 +7,7 @@
 <body>
     <?php require 'includes/header.php'; ?>
     <?php require 'includes/navigation.php'; ?>
-    <?php require 'includes/main_sesion.php'; ?>
+    <?php require 'includes/main_metodoModel.php'; ?>
     <?php require 'includes/footer.php'; ?>
 </body>
 
