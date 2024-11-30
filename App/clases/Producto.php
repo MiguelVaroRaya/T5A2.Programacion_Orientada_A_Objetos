@@ -7,16 +7,17 @@ use app\interfaces\VendibleInterface;
 abstract class Producto implements VendibleInterface
 {
 
+    protected const IVA = 21.0;
+
     public function __construct(private string $nombre, private float $precio, private int $id)
     {
-        define('IVA', 21.0);
     }
 
     abstract protected function mostrarDescripcion(): void;
 
     public function calcularPrecioConIVA(): float
     {
-        $aumento = $this->precio * (IVA / 100);
+        $aumento = $this->precio * (self::IVA / 100);
 
         $resultado = $this->precio + $aumento;
 
