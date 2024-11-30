@@ -11,9 +11,15 @@ class Electronico extends Producto
     }
 
     public function mostrarDescripcion(): void
-    {
-        echo "El producto $this->nombre cuesta $this->precio euros y es el modelo $this->modelo";
-    }
+    { ?>
+        <div class="card__titulo">
+            <h3><?php echo $this->nombre ?></h3>
+        </div>
+        <div class="card__content">
+            <p>Precio: <?php echo $this->precio ?></p>
+            <p>Modelo: <?php echo $this->modelo ?></p>
+        </div>
+<?php }
 
     public function getModelo(): string
     {

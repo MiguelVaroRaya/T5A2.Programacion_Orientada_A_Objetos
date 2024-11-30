@@ -14,8 +14,17 @@ class Comida extends Producto
 
     public function mostrarDescripcion(): void
     {
-        echo "El producto $this->nombre cuesta $this->precio euros y caduca en la fecha $this->caducidad";
-    }
+        $fecha = $this->caducidad->format('d-m-Y');
+?>
+        <div class="card__titulo">
+            <h3><?php echo $this->nombre ?></h3>
+        </div>
+        <div class="card__content">
+            <p>Precio: <?php echo $this->precio ?></p>
+            <p>Caducidad: <?php echo $fecha ?></p>
+        </div>
+
+<?php }
 
     public function getCaducidad(): DateTime
     {

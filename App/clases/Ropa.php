@@ -11,9 +11,15 @@ class Ropa extends Producto
     }
 
     public function mostrarDescripcion(): void
-    {
-        echo "El producto $this->nombre cuesta $this->precio euros y es la talla $this->talla";
-    }
+    { ?>
+        <div class="card__titulo">
+            <h3><?php echo $this->nombre ?></h3>
+        </div>
+        <div class="card__content">
+            <p>Precio: <?php echo $this->precio ?></p>
+            <p>Talla: <?php echo $this->talla ?></p>
+        </div>
+<?php }
 
     public function getTalla(): string
     {
