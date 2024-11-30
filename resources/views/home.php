@@ -40,7 +40,11 @@
         'id_producto'
     )->innerJoin('productos.id', 'id_producto');
 
-    var_dump($ropa)
+    var_dump($ropa);
+    foreach ($ropa as $fila) {
+        $listaRopa[] = new Ropa($fila->nombre, floatval($fila->precio), $fila->id, $fila->talla);
+    }
+    var_dump($listaRopa);
     // Consulta
     /*          $productos = $productoModel->select('productos.id,id_producto')
      ->from('ropa','productos')
