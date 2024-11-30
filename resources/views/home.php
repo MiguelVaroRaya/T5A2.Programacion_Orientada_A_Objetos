@@ -31,7 +31,7 @@
 
     $ropaModel = new ProductosRopaModel();
     $comidaModel = new ProductosComidaModel();
-
+    $electronicoModel = new ProductosElectronicoModel();
 
     $ropa = $ropaModel->select(
         'productos.id as id',
@@ -50,7 +50,7 @@
         'id_producto'
     )->innerJoin('productos.id', 'id_producto');
 
-    var_dump($comida)
+    var_dump($comida);
     // Consulta
     /*          $productos = $productoModel->select('productos.id,id_producto')
      ->from('ropa','productos')
@@ -98,7 +98,8 @@ print_r($resultado);
 /*     $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
     print_r($resultado2) */
     //Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
-    /*  $resultado = $ropaModel->crearProducto(['nombre' => 'bufanda', 'precio' => '10'], ['patata' => 'M']); */
+    //$resultado = $electronicoModel->crearProducto(['nombre' => 'Nintendo', 'precio' => '239'], ['modelo' => 'Switch']);
+    $resultado = $comidaModel->crearProducto(['nombre' => 'Apio', 'precio' => '2'], ['caducidad' => '2024/12/11']);
     ?>
 
 </body>
