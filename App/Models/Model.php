@@ -11,7 +11,6 @@ require_once '../vendor/autoload.php';
 $dotenv = \Dotenv\Dotenv::createImmutable('..');
 $dotenv->load();
 
-
 class Model
 {
 
@@ -93,7 +92,7 @@ class Model
         // Y se llama a la sentencia
         $this->query($sql)->get();
         // para obtener los datos del select
-        return $this->query->fetchall(\PDO::FETCH_OBJ);
+        return $this->query->fetchall(\PDO::FETCH_ASSOC);
     }
 
     // Consulta base a la que se irán añadiendo partes
@@ -114,7 +113,7 @@ class Model
             $this->query = $this->connection->prepare($sql);
             $this->query->execute($this->values);
             //para obtener los datos del select
-            return $this->query->fetchall(\PDO::FETCH_OBJ);
+            return $this->query->fetchall(\PDO::FETCH_ASSOC);
         }
     }
 
@@ -124,7 +123,7 @@ class Model
 
         $this->query = $this->connection->prepare($sql);
         $this->query->execute([$id]);
-        return $this->query->fetch(\PDO::FETCH_OBJ);
+        return $this->query->fetch(\PDO::FETCH_ASSOC);
     }
 
     // Se añade where a la sentencia con operador específico
@@ -206,9 +205,10 @@ class Model
         //consulta
         $sql = "SELECT {$this->select} FROM {$this->table1} INNER JOIN {$this->table2} ON {$primaria}={$foranea}";
         $this->query = $this->connection->prepare($sql);
+        
         $this->query->execute();
         //para obtener los datos del select
-        return $this->query->fetchall(\PDO::FETCH_OBJ);
+        return $this->query->fetchall(\PDO::FETCH_ASSOC);
     }
     // pasamos $data 1 que serian los campos correspondientes al objeto padre producto producto->getnombre, etc...
     //data2 sería pro ejmplo solo la talla en el caso de ropa ropa->get
