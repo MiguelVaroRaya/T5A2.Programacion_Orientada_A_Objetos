@@ -314,7 +314,7 @@ img{
     color: brown;
 }
 .check{
-    color: green;
+    background-color: green;
 }
 
 @media (max-width: 600px) {

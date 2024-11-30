@@ -52,7 +52,6 @@ class Model
     // Recibe la cadena de consulta y la ejecuta
     private function query($sql, $data = [])
     {
-
         echo "Consulta: {$sql} <br>"; // borrar, solo para ver ejemplo
         echo "Data: ";
         var_dump($data);

@@ -1,6 +1,6 @@
-<main>
+<main class="main_secciones">
 <form class="formulario" action="crear" method="post" enctype="multipart/form-data">
-        <h1>Formulario de Registro</h1>
+        <h1>Creación de Objeto</h1>
             <label for="nombre">Nombre:</label>
             <input type="text" name="nombre"><br><br>
             <p class="error"><?php if (isset($errores['nombre'])) echo $errores['nombre']; ?></p>
@@ -14,7 +14,7 @@
             <button type="submit" name="submit">Registrar</button>
             
 
-            <p class="error"><?php if (isset($error)) echo $error; ?></p>
-            <p class="check"><?php if (isset($mensaje)) echo $mensaje; ?></p>
+            <div class="error"><?php if (isset($error)) echo $error; ?></div>
+            <div class="check"><?php if (isset($mensaje)) echo $mensaje; ?></div>
         </form>
 </main>

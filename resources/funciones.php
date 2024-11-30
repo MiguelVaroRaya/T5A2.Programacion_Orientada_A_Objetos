@@ -33,14 +33,15 @@ function validarEuros(string $cantidad):bool{
 } else {
     return false;
 }
+
+}
 function validarTalla(string $talla):bool{
   $tallas = ['S', 'M', 'L', 'XL'];
 
   // Verificar si el valor 'L' está en el array
-  if (in_array($talla, $tallas)) {
+  if (in_array(strtoupper($talla), $tallas)) {
       return true;
   } else {
       return false;
   }
-}
 }
