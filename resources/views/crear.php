@@ -2,7 +2,7 @@
 
 <head>
     <?php require 'includes/head.php';
-    require_once __DIR__.'/../crearProducto.php'; ?>
+    require_once __DIR__.'/crearProducto.php'; ?>
 </head>
 
 <body>

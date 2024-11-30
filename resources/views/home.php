@@ -18,7 +18,7 @@
     use App\Models\ProductosComidaModel;
     // Se instancian los modelos tener en cuenta que hay que cambiar las consultas ya que he cambiado el nombre de la variables 
     //para los nuevos objetos
-/*     $ropaModel = new ProductosRopaModel();
+    /*     $ropaModel = new ProductosRopaModel();
     $electronicoModel = new ProductosElectronicoModel();
     $comidaModel = new ProductosComidaModel(); */
     // Descomentar consultas para ver la creación. Cuando se lanza execute hay código para
@@ -28,6 +28,19 @@
     /*     $productos = $ropaModel->all();
     var_dump($productos);
  */
+
+    $ropaModel = new ProductosRopaModel();
+
+
+    $ropa = $ropaModel->select(
+        'productos.id as id',
+        'nombre',
+        'precio',
+        'talla',
+        'id_producto'
+    )->innerJoin('productos.id', 'id_producto');
+
+    var_dump($ropa)
     // Consulta
     /*          $productos = $productoModel->select('productos.id,id_producto')
      ->from('ropa','productos')
@@ -74,8 +87,8 @@ print_r($resultado);
     //echo "<br>";
 /*     $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
     print_r($resultado2) */
-//Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
-   /*  $resultado = $ropaModel->crearProducto(['nombre' => 'bufanda', 'precio' => '10'], ['patata' => 'M']); */
+    //Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
+    /*  $resultado = $ropaModel->crearProducto(['nombre' => 'bufanda', 'precio' => '10'], ['patata' => 'M']); */
     ?>
 
 </body>
