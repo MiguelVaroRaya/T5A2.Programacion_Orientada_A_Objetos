@@ -12,23 +12,24 @@
     <p class="header-paragraph">Pruebas de consultas:</p>
     <?php
 
+    use App\clases\Ropa;
     use App\Models\ProductosRopaModel; // Recuerda el uso del autoload.php
     use App\Models\ProductosElectronicoModel;
     use App\Models\ProductosComidaModel;
     // Se instancian los modelos tener en cuenta que hay que cambiar las consultas ya que he cambiado el nombre de la variables 
     //para los nuevos objetos
-    $ropaModel = new ProductosRopaModel();
+/*     $ropaModel = new ProductosRopaModel();
     $electronicoModel = new ProductosElectronicoModel();
-    $comidaModel = new ProductosComidaModel();
+    $comidaModel = new ProductosComidaModel(); */
     // Descomentar consultas para ver la creación. Cuando se lanza execute hay código para
     // mostrar la consulta SQL que se está ejecutando.
 
     // Consulta 
-    $productos = $ropaModel->from($ropaModel->getTable2())->all();
+    /*     $productos = $ropaModel->all();
     var_dump($productos);
-
+ */
     // Consulta
-/*          $productos = $productoModel->select('productos.id,id_producto')
+    /*          $productos = $productoModel->select('productos.id,id_producto')
      ->from('ropa','productos')
      ->get();
      var_dump($productos); */
@@ -37,7 +38,7 @@
     // utilizamos los getter de las tablas tanto para generar el productos.id (es necesario para que no haya ambiguedad con el id de ropa)
     //como para establecer en from las tablas con las que vamos a operar
     //quiza en el select se podria poner directamtne la columna productos.id sin llamar a la tabla
-/*     $productos = $productoModel->select($productoModel->getTable1().'.id', 'nombre','talla')
+    /*     $productos = $productoModel->select($productoModel->getTable1().'.id', 'nombre','talla')
 
                   ->from($productoModel->getTable1(),$productoModel->getTable2())
                  ->orderBy('id', 'DESC')
@@ -64,16 +65,19 @@
 
     // Consulta
     //$resultado = $productoModel->select('*')->where('precio', '=', 4)->get();
-/* $resultado = $productoModel->select($productoModel->getTable1().'.id',$productoModel->getTable1().'.nombre',$productoModel->getTable1().'.precio',
-$productoModel->getTable2().'.talla',$productoModel->getTable2().'.id_producto')
+    /* $resultado = $ropaModel->select('productos.id as id','nombre','precio',
+'talla','id_producto')
 
 ->innerJoin('productos.id','id_producto');
-print_r($resultado); */
+print_r($resultado);
 
     //echo "<br>";
 /*     $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
     print_r($resultado2) */
+//Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
+   /*  $resultado = $ropaModel->crearProducto(['nombre' => 'bufanda', 'precio' => '10'], ['patata' => 'M']); */
     ?>
+
 </body>
 
 </html>

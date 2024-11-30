@@ -313,6 +313,9 @@ img{
 .error{
     color: brown;
 }
+.check{
+    color: green;
+}
 
 @media (max-width: 600px) {
     .tabla_precios {

@@ -22,7 +22,6 @@ class Model
     protected $select = '*';
     protected $where, $values = [];
     protected $orderBy;
-    protected $from;
     protected $table1;
     protected $table2; // Definido en el hijo
 
@@ -87,19 +86,11 @@ class Model
         return $this;
     }
 
-    public function from(...$tables)
-    {
-        // Separamos el array en una cadena con ,
-        $this->from  = implode(', ', $tables);
-
-        return $this;
-    }
-
     // Devuelve todos los registros de una tabla
     public function all()
     {
         // La consulta sería
-        $sql = "SELECT * FROM {$this->from}";
+        $sql = "SELECT * FROM {$this->table1}";
         // Y se llama a la sentencia
         $this->query($sql)->get();
         // para obtener los datos del select
@@ -110,7 +101,7 @@ class Model
     public function get()
     {
         if (empty($this->query)) {
-            $sql = "SELECT {$this->select} FROM {$this->from}";
+            $sql = "SELECT {$this->select} FROM {$this->table1}";
 
             // Se comprueban si están definidos para añadirlos a la cadena $sql
             if ($this->where) {
@@ -130,7 +121,7 @@ class Model
 
     public function find($id)
     {
-        $sql = "SELECT * FROM {$this->from} WHERE id = ?";
+        $sql = "SELECT * FROM {$this->table1} WHERE id = ?";
 
         $this->query = $this->connection->prepare($sql);
         $this->query->execute([$id]);
@@ -169,15 +160,15 @@ class Model
         return $this;
     }
 
-    // Insertar, recibimos un $_GET o $_POST
-    public function create($data)
+    // Insertar, recibimos un $_GET o $_POST en $data el parametro table es para definir en que tabla insertamos
+    public function create($data, $table)
     {
         $columns = array_keys($data); // array de claves del array
         $columns = implode(', ', $columns); // y creamos una cadena separada por ,
 
         $values = array_values($data); // array de los valores
 
-        $sql = "INSERT INTO {$this->from} ({$columns}) VALUES (?" . str_repeat(', ? ', count($values) - 1) . ")";
+        $sql = "INSERT INTO {$table} ({$columns}) VALUES (?" . str_repeat(', ? ', count($values) - 1) . ")";
 
         $this->query($sql, $values);
 
@@ -185,7 +176,6 @@ class Model
     }
 
     public function update($id, $data)
-    //llamamos con from a la tabla que queremos modificar y $id y $data los parametros correspondientes
     {
         $fields = [];
 
@@ -195,7 +185,7 @@ class Model
 
         $fields = implode(', ', $fields);
 
-        $sql = "UPDATE {$this->from} SET {$fields} WHERE id = ?";
+        $sql = "UPDATE {$this->table1} SET {$fields} WHERE id = ?";
 
         $values = array_values($data);
         $values[] = $id;
@@ -221,4 +211,33 @@ class Model
         //para obtener los datos del select
         return $this->query->fetchall(\PDO::FETCH_OBJ);
     }
+    // pasamos $data 1 que serian los campos correspondientes al objeto padre producto producto->getnombre, etc...
+    //data2 sería pro ejmplo solo la talla en el caso de ropa ropa->get
+    public function crearProducto($data1,$data2):string {
+        try {
+            $this->connection->beginTransaction();
+             //data1 sería el equivalente a los valores de la tabla1 Id, nombre, precio
+            $this->create($data1, $this->table1);
+            /* data2 sería el equivalente a los valores de la tabla2 en este caso solo talla u otros equivalentes segun el producto
+            ya que id_producto viene definido por el insert anterior */
+             // definimos y concatenamos aquí el lastInsertID()
+            $lastInsertedId = $this->connection->lastInsertId();
+            $data2 ['id_producto']= $lastInsertedId;
+            $this->create($data2, $this->table2);
+            $this->connection->commit();
+            //  echos para pruebas en la app se gestionara con un mensaje en pantalla
+            $mensaje = "El nuevo producto se registró correctamente";
+            return $mensaje;
+             } catch (\Exception $e) {
+                // deshacemos la transacción 
+                $this->connection->rollback();
+                $error = "Error en el registro" . $e->getMessage();
+               return $error;
+            }
+       
+        
+       
+
+    }
+    
 }

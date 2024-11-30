@@ -2,7 +2,7 @@
 
 namespace app\clases;
 
-use app\Interfaces\VendibleInterface;
+use app\interfaces\VendibleInterface;
 
 abstract class Producto implements VendibleInterface
 {

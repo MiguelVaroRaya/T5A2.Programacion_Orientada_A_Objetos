@@ -7,6 +7,8 @@ $allowed_routes = [
     '/home' => 'home.php',
     '/metodoModel' => 'metodoModel.php',
     '/carrito' => 'carrito.php',
+    '/crear' => 'crear.php',
+    '/crearProducto' => 'crearProducto.php'
 ];
 
 if (array_key_exists($request, $allowed_routes)) {
