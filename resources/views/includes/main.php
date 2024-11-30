@@ -1,3 +1,21 @@
+<?php
+
+use app\clases\Ropa;
+use App\Models\ProductosComidaModel;
+use App\Models\ProductosElectronicoModel;
+use App\Models\ProductosRopaModel;
+
+$modelRopa = new ProductosRopaModel();
+$modelComida = new ProductosComidaModel();
+$modelElectronico = new ProductosElectronicoModel();
+
+$ropaTotal = $modelRopa->select("productos.id as id", "nombre", "precio", "talla", "id_producto")->innerJoin("productos.id", "id_producto");
+foreach ($ropaTotal as $key => $ropa) {
+    $ropaClases[] = new Ropa($ropa["nombre"], $ropa["precio"], $ropa["id"], $ropa["talla"]);
+}
+
+?>
+
 <main class="main">
     <section class="section">
         <h1>Seccion Comida</h1>

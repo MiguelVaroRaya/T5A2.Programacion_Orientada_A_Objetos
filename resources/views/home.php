@@ -30,6 +30,7 @@
  */
 
     $ropaModel = new ProductosRopaModel();
+    $comidaModel = new ProductosComidaModel();
 
 
     $ropa = $ropaModel->select(
@@ -40,7 +41,16 @@
         'id_producto'
     )->innerJoin('productos.id', 'id_producto');
 
-    var_dump($ropa)
+    $comida = $comidaModel->select(
+        'productos.id as id',
+        'comida.id as id2',
+        'nombre',
+        'precio',
+        'caducidad',
+        'id_producto'
+    )->innerJoin('productos.id', 'id_producto');
+
+    var_dump($comida)
     // Consulta
     /*          $productos = $productoModel->select('productos.id,id_producto')
      ->from('ropa','productos')
