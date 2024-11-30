@@ -31,7 +31,7 @@ foreach ($electronicoTotal as $key => $electronico) {
 
 <main class="main">
     <section class="section">
-        <h1>Seccion Comida</h1>
+        <h1>Seccion Ropa</h1>
         <div class="card_container">
             <?php
             foreach ($ropaClases as $key => $ropa) { ?>
@@ -45,6 +45,7 @@ foreach ($electronicoTotal as $key => $electronico) {
                     </div>
                     <div class="card__footer">
                         <button class="card__boton">Añadir al carrito</button>
+                        <button class="card__boton">Borrar</button>
                     </div>
                 </div>
             <?php } ?>
@@ -52,7 +53,7 @@ foreach ($electronicoTotal as $key => $electronico) {
     </section>
 
     <section class="section">
-        <h1>Seccion Ropa</h1>
+        <h1>Seccion Comida</h1>
         <div class="card_container">
         <?php
             foreach ($comidaClases as $key => $comida) { ?>
@@ -62,10 +63,11 @@ foreach ($electronicoTotal as $key => $electronico) {
                     </div>
                     <div class="card__content">
                         <p>Precio: <?php echo $comida->getPrecio() ?></p>
-                        <p>Talla: <?php echo $comida->getCaducidad()->format('d-m-Y') ?></p>
+                        <p>Fecha: <?php echo $comida->getCaducidad()->format('d-m-Y') ?></p>
                     </div>
                     <div class="card__footer">
                         <button class="card__boton">Añadir al carrito</button>
+                        <button class="card__boton">Borrar</button>
                     </div>
                 </div>
             <?php } ?>
@@ -83,10 +85,11 @@ foreach ($electronicoTotal as $key => $electronico) {
                     </div>
                     <div class="card__content">
                         <p>Precio: <?php echo $electronico->getPrecio() ?></p>
-                        <p>Talla: <?php echo $electronico->getModelo() ?></p>
+                        <p>Modelo: <?php echo $electronico->getModelo() ?></p>
                     </div>
                     <div class="card__footer">
                         <button class="card__boton">Añadir al carrito</button>
+                        <button class="card__boton">Borrar</button>
                     </div>
                 </div>
             <?php } ?>
