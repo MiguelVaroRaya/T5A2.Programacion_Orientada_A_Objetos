@@ -99,9 +99,10 @@ function filtrado(string $datos): string
     return $datos;
 }
 
+$carrito = new Carrito();
+
 if (isset($_POST["agregarRopa"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     $id = filtrado($_POST["id"]);
-    $carrito = new Carrito();
 
     if (empty($id) || !preg_match('/^\d{1,3}$/', $id)) {
         echo "Error al añadir al carrito";
@@ -109,6 +110,40 @@ if (isset($_POST["agregarRopa"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($ropaClases as $key => $ropa) {
             if ($ropa->getId() == $id) {
                 $agregar = $ropa;
+            }
+        }
+        if (isset($agregar)) {
+            $carrito->agregarProducto($agregar);
+        }
+    }
+}
+
+if (isset($_POST["agregarComida"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = filtrado($_POST["id"]);
+
+    if (empty($id) || !preg_match('/^\d{1,3}$/', $id)) {
+        echo "Error al añadir al carrito";
+    } else {
+        foreach ($comidaClases as $key => $comida) {
+            if ($comida->getId() == $id) {
+                $agregar = $comida;
+            }
+        }
+        if (isset($agregar)) {
+            $carrito->agregarProducto($agregar);
+        }
+    }
+}
+
+if (isset($_POST["agregarElectronico"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = filtrado($_POST["id"]);
+
+    if (empty($id) || !preg_match('/^\d{1,3}$/', $id)) {
+        echo "Error al añadir al carrito";
+    } else {
+        foreach ($electronicoClases as $key => $electronico) {
+            if ($electronico->getId() == $id) {
+                $agregar = $electronico;
             }
         }
         if (isset($agregar)) {
