@@ -47,10 +47,6 @@ foreach ($electronicoTotal as $key => $electronico) {
                                 <input type="hidden" name="id" id="id" value="<?php echo $ropa->getId() ?>">
                                 <button type="submit" name="agregarRopa" class="card__boton">Añadir al carrito</button>
                             </form>
-                            <form action="mostrar" method="GET">
-                                <input type="hidden" name="id" value="<?php echo $ropa->getId() ?>">
-                                <button type="submit" class="card__boton">Detalle</button>
-                            </form>
                         </div>
                     </div>
             <?php }
@@ -71,10 +67,6 @@ foreach ($electronicoTotal as $key => $electronico) {
                             <form action="/" method="post">
                                 <input type="hidden" name="id" id="id" value="<?php echo $comida->getId() ?>">
                                 <button type="submit" name="agregarComida" class="card__boton">Añadir al carrito</button>
-                            </form>
-                            <form action="mostrar" method="GET">
-                                <input type="hidden" name="id" value="<?php echo $ropa->getId() ?>">
-                                <button type="submit" class="card__boton">Detalle</button>
                             </form>
                         </div>
                     </div>
