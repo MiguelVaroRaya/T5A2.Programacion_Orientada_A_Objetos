@@ -18,9 +18,9 @@ class Model
 
     private $query; // Consulta a ejecutar
 
-    protected $select = '*';
-    protected $where, $values = [];
-    protected $orderBy;
+    private $select = '*';
+    private $where, $values = [];
+    private $orderBy;
     protected $table1;
     protected $table2; // Definido en el hijo
 
