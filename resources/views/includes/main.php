@@ -108,8 +108,9 @@ foreach ($electronicoTotal as $key => $electronico) {
         </div>
     </section>
 
-    <form action="procedimiento" method="GET">
-        <button type="submit" class="card__boton">Usar procdimiento</button>
+    <form action="procedimiento" method="POST">
+        <button type="submit" class="card__boton">Usar procedimiento</button>
+
     </form>
 </main>
 
