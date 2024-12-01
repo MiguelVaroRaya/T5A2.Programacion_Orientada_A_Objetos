@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 /**
@@ -30,7 +32,7 @@ class Model
         $this->connection();
     }
 
-    private function connection()
+    private function connection(): void
     {
         $dbHost = $_ENV['DB_HOST'];
         $dbName = $_ENV['DB_NAME'];
@@ -49,7 +51,7 @@ class Model
     // Consultas: 
 
     // Recibe la cadena de consulta y la ejecuta
-    private function query($sql, $data = [])
+    private function query(string $sql, array $data = []): object
     {
         echo "Consulta: {$sql} <br>"; // borrar, solo para ver ejemplo
         echo "Data: ";
@@ -76,7 +78,7 @@ class Model
         return $this;
     }
 
-    public function select(...$columns)
+    public function select(string ...$columns): object
     {
         // Separamos el array en una cadena con ,
         $this->select = implode(', ', $columns);
@@ -85,7 +87,7 @@ class Model
     }
 
     // Devuelve todos los registros de una tabla
-    public function all()
+    public function all(): array
     {
         // La consulta sería
         $sql = "SELECT * FROM {$this->table1}";
@@ -96,7 +98,7 @@ class Model
     }
 
     // Consulta base a la que se irán añadiendo partes
-    public function get()
+    public function get(): array
     {
         if (empty($this->query)) {
             $sql = "SELECT {$this->select} FROM {$this->table1}";
@@ -117,7 +119,7 @@ class Model
         }
     }
 
-    public function find($id)
+    public function find(int $id): array
     {
         $sql = "SELECT * FROM {$this->table1} WHERE id = ?";
 
@@ -127,7 +129,7 @@ class Model
     }
 
     // Se añade where a la sentencia con operador específico
-    public function where($column, $operator, $value = null, $chainType = 'AND')
+    public function where(string $column, string $operator, string $value = null, string $chainType = 'AND'): object
     {
         if ($value == null) { // Si no se pasa operador, por defecto =
             $value = $operator;
@@ -147,7 +149,7 @@ class Model
     }
 
     // Se añade orderBy a la sentencia
-    public function orderBy($column, $order = 'ASC')
+    public function orderBy(string $column, string $order = 'ASC'): object
     {
         if ($this->orderBy) {
             $this->orderBy .= ", {$column} {$order}";
@@ -159,7 +161,7 @@ class Model
     }
 
     // Insertar, recibimos un $_GET o $_POST en $data el parametro table es para definir en que tabla insertamos
-    public function create($data, $table)
+    public function create(array $data, string $table): object
     {
         $columns = array_keys($data); // array de claves del array
         $columns = implode(', ', $columns); // y creamos una cadena separada por ,
@@ -173,7 +175,7 @@ class Model
         return $this;
     }
 
-    public function update($id, $data)
+    public function update(int $id, array $data): object
     {
         $fields = [];
 
@@ -192,7 +194,7 @@ class Model
         return $this;
     }
 
-    public function delete($id)
+    public function delete(int $id): void
     //delete se realizara en la tabla uno solamente ya que las siguiente se borraría en cascada.
     {
         $sql = "DELETE FROM {$this->table1} WHERE id = ?";
@@ -200,7 +202,7 @@ class Model
         $this->query($sql, [$id], 'i');
     }
     // en este metodo llamamos dentro al select y las claves para comparar y hacer el join las pasamos desde fuera
-    public function innerJoin($primaria, $foranea)
+    public function innerJoin(string $primaria, string $foranea): array
     {
         //consulta
         $sql = "SELECT {$this->select} FROM {$this->table1} INNER JOIN {$this->table2} ON {$primaria}={$foranea}";
@@ -212,7 +214,7 @@ class Model
     }
     // pasamos $data 1 que serian los campos correspondientes al objeto padre producto producto->getnombre, etc...
     //data2 sería pro ejmplo solo la talla en el caso de ropa ropa->get
-    public function crearProducto($data1,$data2):string {
+    public function crearProducto(array $data1, array $data2): string {
         try {
             $this->connection->beginTransaction();
              //data1 sería el equivalente a los valores de la tabla1 Id, nombre, precio

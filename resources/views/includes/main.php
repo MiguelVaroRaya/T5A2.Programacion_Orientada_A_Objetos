@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use app\clases\Carrito;
 use app\clases\Comida;
 use app\clases\Electronico;
