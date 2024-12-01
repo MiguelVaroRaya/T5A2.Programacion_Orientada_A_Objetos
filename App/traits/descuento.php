@@ -1,7 +1,10 @@
 <?php
+
+namespace app\traits;
+
 trait descuento
 {
-    function hacerDescuento(float $precio): float
+    static function hacerDescuento(float $precio): float
     {
         return $precio - $precio * 0.2;
     }
