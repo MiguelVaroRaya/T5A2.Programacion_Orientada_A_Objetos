@@ -16,7 +16,7 @@ class Electronico extends Producto
             <h3><?php echo $this->nombre ?></h3>
         </div>
         <div class="card__content">
-            <p>Precio: <?php echo $this->precio ?></p>
+            <p>Precio: <?php echo $this->calcularPrecioConIVA() ?></p>
             <p>Modelo: <?php echo $this->modelo ?></p>
         </div>
 <?php }

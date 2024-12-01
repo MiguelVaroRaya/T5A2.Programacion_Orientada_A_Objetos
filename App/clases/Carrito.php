@@ -62,10 +62,16 @@ class Carrito
         } else {
 ?>
             <section class="section">
-                <div class="card_container">
-                    <?php foreach ($this->productos as $producto) { ?>
+                <div class="card_container"> 
+                    <?php foreach ($this->productos as $key => $producto) {?>
                         <div class="card">
                             <?php $producto->mostrarDescripcion(); ?>
+                            <div class="card__footer">
+                                <form action="/carrito" method="post">
+                                    <input type="hidden" name="key" id="key" value="<?php echo $producto->getId() ?>">
+                                    <button type="submit" name="borrarProducto" class="card__boton">Borrar</button>
+                                </form>
+                            </div>
                         </div>
                     <?php } ?>
                 </div>
