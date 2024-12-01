@@ -10,8 +10,6 @@ if (str_contains($request, "?")) {
 
 $allowed_routes = [
     '/' => 'principal.php',
-    '/home' => 'home.php',
-    '/metodoModel' => 'metodoModel.php',
     '/carrito' => 'carrito.php',
     '/crear' => 'crear.php',
     '/crearProducto' => 'crearProducto.php',

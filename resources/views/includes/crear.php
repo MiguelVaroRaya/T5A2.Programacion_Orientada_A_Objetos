@@ -11,7 +11,7 @@
             <input type="text" name="talla"><br><br>
             <p class="error"><?php if (isset($errores['talla'])) echo $errores['talla']; ?></p>
             
-            <button type="submit" name="submit">Registrar</button>
+            <button type="submit" name="submit" class="card__boton">Registrar</button>
             
 
             <div class="error"><?php if (isset($error)) echo $error; ?></div>
