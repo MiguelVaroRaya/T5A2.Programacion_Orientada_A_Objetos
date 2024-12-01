@@ -107,6 +107,10 @@ foreach ($electronicoTotal as $key => $electronico) {
             } ?>
         </div>
     </section>
+
+    <form action="procedimiento" method="GET">
+        <button type="submit" class="card__boton">Usar procdimiento</button>
+    </form>
 </main>
 
 <?php
