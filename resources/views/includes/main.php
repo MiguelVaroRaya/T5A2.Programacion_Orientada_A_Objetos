@@ -101,7 +101,7 @@ foreach ($electronicoTotal as $key => $electronico) {
     </section>
 
     <form action="procedimiento" method="POST">
-        <button type="submit" class="card__boton">Usar procedimiento</button>
+        <button type="submit" class="card__boton">Cambiar tallas M a XL</button>
 
     </form>
 </main>
