@@ -263,5 +263,27 @@ class Model
         return $this;
     
     }
+    public function cambiarTallas($talla): array{
+        //con este procedimiento cambiamos la talla de toda la ropa de una talla seleccionada a XL que deseemos 
+        //solo hay que pasarle la talla 
+        $sql = "SET @mi_talla = ?";
+        $this->query = $this->connection->prepare($sql);
+        $this->query->execute([$talla]);
+      
+        $sql = "CALL cambiar_talla(@mi_talla, @cantidad)";
+    
+        
+        $this->query = $this->connection->prepare($sql);
+        $this->query->execute();
+    
+        // Recuperar el valor de los parámetros OUT/INOUT
+        $sql = "SELECT @mi_talla AS nueva_talla, @cantidad";
+        $this->query = $this->connection->prepare($sql);
+        $this->query->execute();
+    
+        
+        return $this->query->fetch(\PDO::FETCH_ASSOC);
+    }
+    
     
 }

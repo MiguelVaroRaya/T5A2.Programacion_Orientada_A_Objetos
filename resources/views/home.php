@@ -98,8 +98,8 @@ print_r($resultado); */
 //    $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
     //print_r($resultado2)
     //Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
-    $resultado = $electronicoModel->crearProducto(['nombre' => 'Nintendo', 'precio' => '239'], ['modelo' => 'Switch']);
-    $resultado2 = $electronicoModel->crearProducto(['nombre' => 'Playstation', 'precio' => '400'], ['modelo' => '5']);
+    $resultado = $ropaModel->cambiarTallas('M');
+    var_dump($resultado);
     ?>
 
 </body>
