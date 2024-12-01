@@ -34,68 +34,77 @@ foreach ($electronicoTotal as $key => $electronico) {
 
 <main class="main">
     <section class="section">
-        <h1>Seccion Ropa</h1>
+        <h1>Sección Ropa</h1>
         <div class="card_container">
-            <?php
-            foreach ($ropaClases as $key => $ropa) { ?>
-                <div class="card">
-                    <?php $ropa->mostrarDescripcion() ?>
-                    <div class="card__footer">
-                        <form action="/" method="post">
-                            <input type="hidden" name="id" id="id" value="<?php echo $ropa->getId() ?>">
-                            <button type="submit" name="agregarRopa" class="card__boton">Añadir al carrito</button>
-                        </form>
-                        <form action="mostrar" method="GET">
-                            <input type="hidden" name="id" value= "<?php echo $ropa->getId() ?>"> 
-                            <button type="submit" class="card__boton">Detalle</button>
-                        </form>
+            <?php if (empty($ropaClases)) { ?>
+                <p class="no-productos">No hay productos de ropa disponibles.</p>
+                <?php } else {
+                foreach ($ropaClases as $key => $ropa) { ?>
+                    <div class="card">
+                        <?php $ropa->mostrarDescripcion() ?>
+                        <div class="card__footer">
+                            <form action="/" method="post">
+                                <input type="hidden" name="id" id="id" value="<?php echo $ropa->getId() ?>">
+                                <button type="submit" name="agregarRopa" class="card__boton">Añadir al carrito</button>
+                            </form>
+                            <form action="mostrar" method="GET">
+                                <input type="hidden" name="id" value="<?php echo $ropa->getId() ?>">
+                                <button type="submit" class="card__boton">Detalle</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
+            <?php }
+            } ?>
         </div>
     </section>
 
     <section class="section">
         <h1>Seccion Comida</h1>
         <div class="card_container">
-            <?php
-            foreach ($comidaClases as $key => $comida) { ?>
-                <div class="card">
-                    <?php $comida->mostrarDescripcion() ?>
-                    <div class="card__footer">
-                        <form action="/" method="post">
-                            <input type="hidden" name="id" id="id" value="<?php echo $comida->getId() ?>">
-                            <button type="submit" name="agregarComida" class="card__boton">Añadir al carrito</button>
-                        </form>
-                        <form action="mostrar" method="GET">
-                            <input type="hidden" name="id" value= "<?php echo $ropa->getId() ?>"> 
-                            <button type="submit" class="card__boton">Detalle</button>
-                        </form>
+            <?php if (empty($comidaClases)) { ?>
+                <p class="no-productos">No hay productos de comida disponibles.</p>
+                <?php } else {
+                foreach ($comidaClases as $key => $comida) { ?>
+                    <div class="card">
+                        <?php $comida->mostrarDescripcion() ?>
+                        <div class="card__footer">
+                            <form action="/" method="post">
+                                <input type="hidden" name="id" id="id" value="<?php echo $comida->getId() ?>">
+                                <button type="submit" name="agregarComida" class="card__boton">Añadir al carrito</button>
+                            </form>
+                            <form action="mostrar" method="GET">
+                                <input type="hidden" name="id" value="<?php echo $ropa->getId() ?>">
+                                <button type="submit" class="card__boton">Detalle</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
+            <?php }
+            } ?>
         </div>
     </section>
 
     <section class="section">
         <h1>Seccion Electrónica</h1>
         <div class="card_container">
-            <?php
-            foreach ($electronicoClases as $key => $electronico) { ?>
-                <div class="card">
-                <?php $electronico->mostrarDescripcion() ?>
-                    <div class="card__footer">
-                        <form action="/" method="post">
-                            <input type="hidden" name="id" id="id" value="<?php echo $electronico->getId() ?>">
-                            <button type="submit" name="agregarElectronico" class="card__boton">Añadir al carrito</button>
-                        </form>
-                        <form action="mostrar" method="GET">
-                            <input type="hidden" name="id" value= "<?php echo $electronico->getId() ?>"> 
-                            <button type="submit" class="card__boton">Detalle</button>
-                        </form>
+            <?php if (empty($electronicoClases)) { ?>
+                <p class="no-productos">No hay productos electrónicos disponibles.</p>
+                <?php } else {
+                foreach ($electronicoClases as $key => $electronico) { ?>
+                    <div class="card">
+                        <?php $electronico->mostrarDescripcion() ?>
+                        <div class="card__footer">
+                            <form action="/" method="post">
+                                <input type="hidden" name="id" id="id" value="<?php echo $electronico->getId() ?>">
+                                <button type="submit" name="agregarElectronico" class="card__boton">Añadir al carrito</button>
+                            </form>
+                            <form action="mostrar" method="GET">
+                                <input type="hidden" name="id" value="<?php echo $electronico->getId() ?>">
+                                <button type="submit" class="card__boton">Detalle</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            <?php } ?>
+            <?php }
+            } ?>
         </div>
     </section>
 </main>
