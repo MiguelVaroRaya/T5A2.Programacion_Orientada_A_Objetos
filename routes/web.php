@@ -16,7 +16,8 @@ $allowed_routes = [
     '/crear' => 'crear.php',
     '/crearProducto' => 'crearProducto.php',
     '/mostrar' => 'mostrar.php',
-    '/borrar' => 'borrar.php'
+    '/borrar' => 'borrar.php',
+    '/editar' => 'editar.php'
 ];
 
 if (array_key_exists($request, $allowed_routes)) {

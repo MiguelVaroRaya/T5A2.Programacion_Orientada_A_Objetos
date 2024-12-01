@@ -9,7 +9,15 @@ use App\Models\ProductosComidaModel;
 
 
 if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
-  $nombre_existe = false;
+    $id = filtrado($_POST['id']);
+    if (empty($id)) {
+        $errores['id'] = "id no introducido.";
+      } elseif (filter_var($id, FILTER_VALIDATE_INT)) {
+        $datos['id'] = $id;
+      } else {
+        $errores['id'] = "Formato id incorrecto";
+      }
+
   $nombre = filtrado($_POST["nombre"]);
 
   if (empty($nombre)) {
@@ -41,8 +49,12 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   if (empty($errores)) {
-    $ropaModel = new ProductosElectronicoModel();
-    $resultado = $ropaModel->crearProducto(['nombre' => $datos['nombre'],'precio'=>$datos['precio']], ['talla' => $datos['talla']]);
+    $electronicoModel = new ProductosElectronicoModel();
+    $resultado = $electronicoModel->actualizarDatos(['id'=> $datos['id'],'nombre' => $datos['nombre'],'precio'=>$datos['precio'],'modelo' => $datos['modelo']]);
     $mensaje = $resultado;
+    header('Location:/mostrar?id='.$datos['id']);
+  }else{
+
   }
+  header('Location:/mostrar?id='.$datos['id']);
 }

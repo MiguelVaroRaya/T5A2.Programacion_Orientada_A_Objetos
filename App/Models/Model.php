@@ -252,7 +252,7 @@ class Model
         //para obtener los datos del select
         return $this->query->fetch(\PDO::FETCH_ASSOC);
     }
-    public function actualizarDatos(array $data){
+    public function actualizarDatos(array $data):object{
         
 
         $sql = "CALL actualizar_datos(?, ?, ?, ?)";

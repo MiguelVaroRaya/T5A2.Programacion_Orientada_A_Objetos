@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 use app\clases\Electronico;
 
 use App\Models\ProductosElectronicoModel;
@@ -25,7 +24,7 @@ if (isset($_GET['id'])) {
 
 
 <main class="main_secciones">
-    <form class="formulario" action="update" method="post" enctype="multipart/form-data">
+    <form class="formulario" action="mostrar" method="post" enctype="multipart/form-data">
         <h1>Edición y borrado de datos de Objeto</h1>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" value="<?php echo $electronicoObject->getNombre() ?>"><br><br>
@@ -36,7 +35,7 @@ if (isset($_GET['id'])) {
         <label for="talla">Modelo:</label>
         <input type="text" name="modelo" value="<?php echo $electronicoObject->getModelo() ?>"><br><br>
         <p class="error"><?php if (isset($errores['talla'])) echo $errores['talla']; ?></p>
-
+        <input type="hidden" name="id" value="<?php echo $electronicoObject->getId() ?>">
         <button type="submit" name="submit" class="card__boton">Editar</button>
 
 

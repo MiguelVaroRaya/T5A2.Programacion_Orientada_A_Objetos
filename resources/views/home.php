@@ -79,7 +79,7 @@
     //             ->orderBy('columna1', 'DESC')
     //             ->get();
 
-    // Consulta
+     //Consulta
     //$productoModel->create(['nombre' => 'camisa','precio' => '20']);
 
     // Consulta
@@ -93,13 +93,13 @@
 
 ->innerJoin('productos.id','id_producto');
 print_r($resultado); */
-$electronicoModel->actualizarDatos([19,'Playstation',500,'5 PRO']);
+/* $electronicoModel->actualizarDatos([19,'Playstation',500,'5 PRO']); */
     //echo "<br>";
 //    $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
     //print_r($resultado2)
     //Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
-    //$resultado = $electronicoModel->crearProducto(['nombre' => 'Nintendo', 'precio' => '239'], ['modelo' => 'Switch']);
-    
+    $resultado = $electronicoModel->crearProducto(['nombre' => 'Nintendo', 'precio' => '239'], ['modelo' => 'Switch']);
+    $resultado2 = $electronicoModel->crearProducto(['nombre' => 'Playstation', 'precio' => '400'], ['modelo' => '5']);
     ?>
 
 </body>
