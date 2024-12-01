@@ -260,7 +260,7 @@ class Model
         return $this;
     
     }
-    public function cambiarTallas($talla): array{
+    public function cambiarTallas(string $talla): array{
         //con este procedimiento cambiamos la talla de toda la ropa de una talla seleccionada a XL que deseemos 
         //solo hay que pasarle la talla 
         $sql = "SET @mi_talla = ?";
