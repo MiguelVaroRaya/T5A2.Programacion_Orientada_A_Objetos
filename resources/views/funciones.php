@@ -17,6 +17,15 @@ function validarNombre(string $nombre): bool
   }
 }
 
+function validarModelo(string $modelo): bool
+{
+  if (strlen($modelo) > 20 || !preg_match("/^[a-zA-Z0-9\s]+$/", $modelo)) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
 /* function tabla(array $array): void
 {
   echo '<table>';

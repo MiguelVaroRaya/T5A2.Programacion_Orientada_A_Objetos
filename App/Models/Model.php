@@ -240,5 +240,28 @@ class Model
        
 
     }
+
+    // en este metodo llamamos dentro al select y las claves para comparar y hacer el join las pasamos desde fuera
+    public function innerJoinFind(string $primaria, string $foranea, int $id): array
+    {
+        //consulta
+        $sql = "SELECT {$this->select} FROM {$this->table1} INNER JOIN {$this->table2} ON {$primaria}={$foranea} WHERE productos.id =?";
+        $this->query = $this->connection->prepare($sql);
+        
+        $this->query->execute([$id]);
+        //para obtener los datos del select
+        return $this->query->fetch(\PDO::FETCH_ASSOC);
+    }
+    public function actualizarDatos(array $data){
+        
+
+        $sql = "CALL actualizar_datos(?, ?, ?, ?)";
+
+        $values = array_values($data);
+
+        $this->query($sql, $values);
+        return $this;
+    
+    }
     
 }

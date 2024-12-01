@@ -33,7 +33,7 @@
     $comidaModel = new ProductosComidaModel();
     $electronicoModel = new ProductosElectronicoModel();
 
-    $ropa = $ropaModel->select(
+/*     $ropa = $ropaModel->select(
         'productos.id as id',
         'nombre',
         'precio',
@@ -50,7 +50,7 @@
         'id_producto'
     )->innerJoin('productos.id', 'id_producto');
 
-    var_dump($comida);
+    var_dump($comida); */
     // Consulta
     /*          $productos = $productoModel->select('productos.id,id_producto')
      ->from('ropa','productos')
@@ -88,18 +88,18 @@
 
     // Consulta
     //$resultado = $productoModel->select('*')->where('precio', '=', 4)->get();
-    /* $resultado = $ropaModel->select('productos.id as id','nombre','precio',
+/*  $resultado = $ropaModel->select('productos.id as id','nombre','precio',
 'talla','id_producto')
 
 ->innerJoin('productos.id','id_producto');
-print_r($resultado);
-
+print_r($resultado); */
+$electronicoModel->actualizarDatos([19,'Playstation',500,'5 PRO']);
     //echo "<br>";
-/*     $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
-    print_r($resultado2) */
+//    $resultado2 = $productoModel->from($productoModel->getTable1())->find(1);
+    //print_r($resultado2)
     //Consulta para crear el objeto ropa e insertarlo en sus dos tablas 
     //$resultado = $electronicoModel->crearProducto(['nombre' => 'Nintendo', 'precio' => '239'], ['modelo' => 'Switch']);
-    $resultado = $comidaModel->crearProducto(['nombre' => 'Apio', 'precio' => '2'], ['caducidad' => '2024/12/11']);
+    
     ?>
 
 </body>

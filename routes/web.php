@@ -2,13 +2,21 @@
 
 $request = $_SERVER['REQUEST_URI'];
 
+if (str_contains($request, "?")) {
+    $array = explode("?", $request);
+    $request = $array[0];
+}
+
+
 $allowed_routes = [
     '/' => 'principal.php',
     '/home' => 'home.php',
     '/metodoModel' => 'metodoModel.php',
     '/carrito' => 'carrito.php',
     '/crear' => 'crear.php',
-    '/crearProducto' => 'crearProducto.php'
+    '/crearProducto' => 'crearProducto.php',
+    '/mostrar' => 'mostrar.php',
+    '/borrar' => 'borrar.php'
 ];
 
 if (array_key_exists($request, $allowed_routes)) {
