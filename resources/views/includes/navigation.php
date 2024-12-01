@@ -2,7 +2,7 @@
     <a href="/" class="nav__link">
         <p class="nav__text">Inicio</p>
     </a>
-    <a href="metodoModel" class="nav__link">
-        <p class="nav__text">Métodos Model</p>
+    <a href="crear" class="nav__link">
+        <p class="nav__text">Insertar</p>
     </a>
 </nav>
